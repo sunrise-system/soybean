@@ -23,7 +23,12 @@ export function createViteProxy(env: Env.ImportMeta, enable: boolean) {
   other.forEach(item => {
     Object.assign(proxy, createProxyItem(item, isEnableProxyLog));
   });
-
+  proxy['/report'] = {
+    target: 'http://localhost:880', // 后台服务器地址
+    changeOrigin: true, // 是否允许不同源
+    secure: false // 支持https
+    // rewrite: (path) => path.replace(/^\/report/, '/report'),
+  };
   return proxy;
 }
 
