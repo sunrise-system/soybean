@@ -1,4 +1,4 @@
-import { request } from '../request';
+import { demoRequest, request } from '../request';
 
 /** get role list */
 export function fetchGetRoleList(params?: Api.SystemManage.RoleSearchParams) {
@@ -23,9 +23,9 @@ export function fetchGetAllRoles() {
 
 /** get user list */
 export function fetchGetUserList(params?: Api.SystemManage.UserSearchParams) {
-  return request<Api.SystemManage.UserList>({
-    url: '/systemManage/getUserList',
-    method: 'get',
+  return demoRequest<Api.SystemManage.UserList>({
+    url: 'ADM08903A/list',
+    method: 'post',
     params
   });
 }
